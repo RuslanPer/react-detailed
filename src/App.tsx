@@ -21,7 +21,7 @@ function App() {
             <Rating value={4}/>
             <Rating value={5}/>
 
-            <OnOff turn={false}/>
+            <OnOff value={true}/>
         </div>
     );
 }
@@ -31,7 +31,6 @@ type PageTitlePropsType = {
 }
 
 function PageTitle(props: PageTitlePropsType) {
-    console.log('App rendering')
     return <h1>{props.title}</h1>
 }
 

@@ -2,16 +2,15 @@ import React from 'react';
 import s from './OnOff.module.css'
 
 type OnOffPropsType = {
-    turn: boolean
+    value: boolean
 }
 
 export const OnOff = (props: OnOffPropsType) => {
-    const colorLight = props.turn ? s.on : s.off
     return (
         <div className={s.onOff}>
-            { props.turn ? <button className={colorLight}>on</button> : <button>on</button> }
-            { !props.turn ? <button className={colorLight}>off</button> : <button>off</button> }
-            { props.turn ? <div className={s.light}></div> : <div className={s.light + ' ' + s.off}></div>}
+            <button className={props.value ? s.on : undefined}>on</button>
+            <button className={!props.value ? s.off : undefined}>off</button>
+            <div className={props.value ? s.light: s.light + ' ' + s.off}></div>
         </div>
     );
 };
