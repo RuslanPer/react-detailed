@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {Dispatch, SetStateAction, useState} from "react";
 
 export function UncontrolledRating() {
 
@@ -6,30 +6,23 @@ export function UncontrolledRating() {
 
     return (
         <div>
-            <button onClick={() => setValue(0)}>0</button>
-            <Star selected={value > 0}/>
-            <button onClick={() => setValue(1)}>1</button>
-            <Star selected={value > 1}/>
-            <button onClick={() => setValue(2)}>2</button>
-            <Star selected={value > 2}/>
-            <button onClick={() => setValue(3)}>3</button>
-            <Star selected={value > 3}/>
-            <button onClick={() => setValue(4)}>4</button>
-            <Star selected={value > 4}/>
-            <button onClick={() => setValue(5)}>5</button>
+            <Star selected={value > 0} setValue={setValue} num={1}/>
+            <Star selected={value > 1} setValue={setValue} num={2}/>
+            <Star selected={value > 2} setValue={setValue} num={3}/>
+            <Star selected={value > 3} setValue={setValue} num={4}/>
+            <Star selected={value > 4} setValue={setValue} num={5}/>
         </div>
     )
 }
 
 type StarPropsType = {
     selected: boolean
+    setValue: Dispatch<SetStateAction<number>>
+    num: number
 }
 
 function Star(props: StarPropsType) {
-
-    if (props.selected === true) {
-        return <span><b>star </b></span>
-    } else {
-        return <span>star </span>
-    }
+    return (
+        props.selected ? <span onClick={()=>props.setValue(props.num)}><b>star </b></span> : <span onClick={()=>props.setValue(props.num)}>star </span>
+    )
 }

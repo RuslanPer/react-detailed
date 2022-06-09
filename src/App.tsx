@@ -28,7 +28,6 @@ function App() {
             <hr/>
 
             <UncontrolledAccordion titleValue={'--Menu--'}/>
-            <UncontrolledAccordion titleValue={'--Users--'}/>
 
             <hr/>
 
