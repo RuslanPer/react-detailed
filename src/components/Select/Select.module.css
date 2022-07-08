@@ -51,6 +51,7 @@
     box-shadow: 0 1px 4px 0px rgb(0 0 0 / 12%);
 }
 
+
 .item {
     display: block;
     padding: 7px 10px;
@@ -60,4 +61,9 @@
     line-height: 21px;
     color: #808080;
     border-radius: 6px;
+}
+
+.item.selected {
+    background-color: #F0F2FD;
+    color: #007bff;
 }
