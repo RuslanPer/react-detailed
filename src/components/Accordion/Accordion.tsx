@@ -13,31 +13,35 @@ export type AccordionPropsType = {
     onClick: (value: any) => void
 }
 
-export const Accordion = (props: AccordionPropsType) => {
+const AccordionSecret = (props: AccordionPropsType) => {
     return <div>
         <AccordionTitle title={props.titleValue} onChange={props.onChange}/>
         { !props.collapsed && <AccordionBody items={props.items} onClick={props.onClick}/> }
     </div>
 
 }
+export const Accordion = React.memo(AccordionSecret)
 
 type AccordionTitlePropsType = {
     title: string
     onChange: () => void
 }
 
-export const AccordionTitle = (props: AccordionTitlePropsType) => {
+const AccordionTitleSecret = (props: AccordionTitlePropsType) => {
     return <h3 onClick={(e) => props.onChange()}>{props.title}</h3>
 }
+export const AccordionTitle = React.memo(AccordionTitleSecret)
+
 
 export type AccordionBodyPropsType = {
     items: ItemType[]
     onClick: (value: any) => void
 }
 
-export const AccordionBody = (props: AccordionBodyPropsType) => {
+const AccordionBodySecret = (props: AccordionBodyPropsType) => {
     return <ul>
         {props.items.map((item, index)=> <li onClick={()=>{props.onClick(item.value)}} key={index}>{item.title}</li>)}
     </ul>
 }
+export const AccordionBody = React.memo(AccordionBodySecret)
 

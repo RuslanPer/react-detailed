@@ -6,7 +6,7 @@ type OnOffPropsType = {
     onChange: (on: boolean) => void
 }
 
-export const OnOff = (props: OnOffPropsType) => {
+const OnOffSecret = (props: OnOffPropsType) => {
 
     return (
         <div className={s.onOff}>
@@ -20,3 +20,5 @@ export const OnOff = (props: OnOffPropsType) => {
         </div>
     );
 };
+
+export const OnOff = React.memo(OnOffSecret)
